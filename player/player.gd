@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @export var speed: int = 100
-# 本节新增代码
+# 05节新增代码
 @onready var animations = $AnimationPlayer
 
-# 本节新增代码
+# 05节新增代码
 func update_animation():
 	if velocity.length() == 0:
 		if animations.is_playing():
@@ -18,7 +18,7 @@ func update_animation():
 		
 
 func handleInput():
-	velocity = Vector2.ZERO # The player's movement vector.
+	velocity = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += speed
 	if Input.is_action_pressed("ui_left"):
@@ -35,5 +35,5 @@ func handleInput():
 func _physics_process(_delta):
 	handleInput()
 	move_and_slide()
-# 本节新增代码
+# 05节新增代码
 	update_animation()
